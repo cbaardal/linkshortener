@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1> Body Text </h1>
+
+{{ short_random_value }}
+
+<form action="/index" method="post" novalidate>
+  {{ form.hidden_tag() }}
+  <p>
+    {{ form.longurl.label }} <br>
+    {{ form.longurl(size=100) }}<br>
+    {% for error in form.longurl.errors %}
+    <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}
+  </p>
+  <p>
+    {{ form.submit() }}
+  </p>
+</form>
+
+
+{% endblock %}
